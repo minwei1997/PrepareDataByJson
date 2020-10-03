@@ -127,3 +127,17 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# ---------------------
+# 忽略所有指定目錄下附檔名是 .png 的檔案
+Label_image/data/Defect_Img/*.png
+
+# ignore all json file
+Label_image/data/js_data/js_file/*.json
+
+# ignore all json file's output
+Label_image/data/js_data/js_output/*
+
+# ignroe pkl file
+Label_image/data/training_pickle/training_data_pkl.pkl
+
