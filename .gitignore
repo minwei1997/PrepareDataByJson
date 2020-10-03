@@ -130,16 +130,16 @@ dmypy.json
 
 # ---------------------
 # 忽略所有指定目錄下附檔名是 .png 的檔案
-Label_image/data/Defect_Img/*.png
+/data/Defect_Img/*.png
 
 # ignore all json file
-Label_image/data/js_data/js_file/*.json
+/data/js_data/js_file/*.json
 
 # ignore all json file's output
-Label_image/data/js_data/js_output/*
+/data/js_data/js_output/*
 
 
 # --- not to ignore ---
-!Label_image/data/Defect_Img/HoleImage1.png
-!Label_image/data/js_data/js_file/HoleImage1.json
-!Label_image/data/js_data/js_output/HoleImage1_json
+!/data/Defect_Img/HoleImage1.png
+!/data/js_data/js_file/HoleImage1.json
+!/data/js_data/js_output/HoleImage1_json

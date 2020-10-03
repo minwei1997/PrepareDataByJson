@@ -13,7 +13,6 @@ this project is use to prepare the Faster RCNN Dataset by labelme's json file.
 ![image](https://github.com/minwei1997/PrepareDataByJson/blob/main/json_output_sample.PNG)
 
  
-
 -------------------------
 ## 使用方法
 > 將labelme標註之json檔放進 ".\data\js_data\js_file" 路徑  
