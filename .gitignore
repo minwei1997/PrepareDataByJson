@@ -138,6 +138,8 @@ Label_image/data/js_data/js_file/*.json
 # ignore all json file's output
 Label_image/data/js_data/js_output/*
 
-# ignroe pkl file
-Label_image/data/training_pickle/training_data_pkl.pkl
 
+# --- not to ignore ---
+!Label_image/data/Defect_Img/HoleImage1.png
+!Label_image/data/js_data/js_file/HoleImage1.json
+!Label_image/data/js_data/js_output/HoleImage1_json

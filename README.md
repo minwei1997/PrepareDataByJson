@@ -1,10 +1,10 @@
 # PrepareDataByJson
-this project is use to prepare the Faster RCNN Dataset by labelme's json file.
+this project is use to prepare the Faster RCNN Dataset by labelme's json file.  
 (You need to prepare your own data)
 
 ## 主要實現功能
 > 將labelme標註後所輸出的json file進行處理，輸出成Faster RCNN之Dataset形式  
-> 並且將其輸出5個可視化資料:
+> 並且將其輸出5個可視化資料(範例):
 
 
 -------------------------
