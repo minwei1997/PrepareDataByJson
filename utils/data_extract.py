@@ -19,7 +19,11 @@ class Data_extractor():
         ''' generate roidb '''
 
         num_objs = len(json_file['shapes'])    # num of objs in img
+        data = self.roidb_generate(num_objs, json_file)
+        return data
+        
 
+    def roidb_generate(self, num_objs, json_file=None, aug_mode=False, clss=None, bbox=None):
         # initialize params
         boxes = np.zeros((num_objs, 4), dtype=np.uint16)
         gt_classes = np.zeros((num_objs), dtype=np.int32)
@@ -28,23 +32,29 @@ class Data_extractor():
 
 
         for ix in range(num_objs):
-            cls = json_file['shapes'][ix]['label']              # get the cls label 
-            bbox = json_file['shapes'][ix]['points']      # get the bbox coord
-
-            # Make pixel indexes 0-based
-            x1 = bbox[0][0] - 1
-            y1 = bbox[0][1] - 1
-            x2 = bbox[1][0] - 1
-            y2 = bbox[1][1] - 1
-
-            cls = self._class_to_ind[cls.lower().strip()]    # conver cls to corresponding index   
+            if not aug_mode:    # get data from json
+                cls = json_file['shapes'][ix]['label']              # get the cls label 
+                bbox = json_file['shapes'][ix]['points']      # get the bbox coord
+                # Make pixel indexes 0-based (get data form list obj)
+                x1 = bbox[0][0] - 1
+                y1 = bbox[0][1] - 1
+                x2 = bbox[1][0] - 1
+                y2 = bbox[1][1] - 1
+                cls = self._class_to_ind[cls.lower().strip()]    # conver cls to corresponding index   
+            else:               # get data from original img when Data Aug. mode
+                cls = clss[ix]
+                # get data from numpy array
+                x1 = bbox[ix, 0] - 1
+                y1 = bbox[ix, 1] - 1
+                x2 = bbox[ix, 2] - 1
+                y2 = bbox[ix, 3] - 1
+            
             boxes[ix, :] = [x1, y1, x2, y2]
             gt_classes[ix] = cls
             overlaps[ix, cls] = 1.0
             seg_areas[ix] = (x2 - x1 + 1) * (y2 - y1 + 1)
 
         overlaps = sparse.csr_matrix(overlaps)
-
         return {'boxes': boxes,
                 'gt_classes': gt_classes,
                 'gt_overlaps': overlaps,
