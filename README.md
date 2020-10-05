@@ -6,12 +6,12 @@ this project is use to prepare the Faster RCNN Dataset by labelme's json file.
 ### Labelme之資料處理
 > 將labelme標註後所輸出的json file進行處理，輸出成Faster RCNN之Dataset形式  
 > (範例) :  
-<img src="https://github.com/minwei1997/PrepareDataByJson/blob/main/gt_roidb_sample.png" width="550" height="180">  
+<img src="https://github.com/minwei1997/PrepareDataByJson/blob/main/%E7%85%A7%E7%89%87/Sample/gt_roidb_sample.png" width="550" height="180">  
 
 > 並且將其輸出5個可視化資料  
 > (範例):  
 
-![image](https://github.com/minwei1997/PrepareDataByJson/blob/main/json_output_sample.PNG)  
+![image](https://github.com/minwei1997/PrepareDataByJson/blob/main/%E7%85%A7%E7%89%87/Sample/json_output_sample.PNG)  
 
 ### Data Augmentation
 > 實現了三種資料擴增方法(同時處理影像及bounding box):
