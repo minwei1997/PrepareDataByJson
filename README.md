@@ -20,7 +20,7 @@ this project is use to prepare the Faster RCNN Dataset by labelme's json file.
 >> 3. Rotate
 
 > 資料擴增示意圖 :  
-
+<img src="https://github.com/minwei1997/PrepareDataByJson/blob/main/%E7%85%A7%E7%89%87/Data%20Aug/Summary.PNG" width="550" height="114">  
  
 -------------------------
 ## 使用方法
