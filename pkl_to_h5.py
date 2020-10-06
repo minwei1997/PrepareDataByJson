@@ -8,7 +8,7 @@ import pandas as pd
 
 if __name__ == '__main__':
     path = '.\data\\training_pickle\\'
-    unpickled_df = pd.read_pickle(osp.join(path, "training_data_pkl.pkl"))
+    unpickled_df = pd.read_pickle(osp.join(path, "Training_Data_Agmented.pkl"))
     df = pd.DataFrame(unpickled_df)
 
     df.info()

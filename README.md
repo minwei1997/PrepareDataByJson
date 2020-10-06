@@ -24,8 +24,11 @@ this project is use to prepare the Faster RCNN Dataset by labelme's json file.
  
 -------------------------
 ## 使用方法
+### Json file 檔案處理
 > 將labelme標註之json檔放進 ".\data\js_data\js_file" 路徑  
 > 接著執行json_extract.py即可進行處理  
 > Faster RCNN之Dataset將存至 ".\data\training_pickle"  
 > 5個可視化資料將存至 ".\data\js_data\js_output"  
 
+### Data Augmentation
+> 執行Data_Aug.py即可進行Augmentation，在__main__中需要設定模式(visulize or augment)以及圖片張數

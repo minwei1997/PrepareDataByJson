@@ -4,7 +4,7 @@ import os.path as osp
 import pickle 
 from utils.generate_json_output import js_to_output
 from utils.data_extract import Data_extractor
-from utils.StringSortByDigit import atoi, natural_keys
+from utils.StringSortByDigit import natural_keys
 
 if __name__ == '__main__':
     print('\n\n')

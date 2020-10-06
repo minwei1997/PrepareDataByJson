@@ -175,6 +175,81 @@ def get_enclosing_box(corners):
     
     return final
 
+def bbox_area(bbox):
+    """Caluclulate bounding boxes' area
+    
+    Parameters
+    ----------
+    bbox: numpy.ndarray
+        Numpy array containing bounding boxes of shape `N X 4` where N is the 
+        number of bounding boxes and the bounding boxes are represented in the
+        format `x1 y1 x2 y2`
+
+    Returns
+    -------
+    
+    numpy.ndarray
+        Numpy array containing all bounding boxes's area of shape `N` where N is the 
+        number of bounding boxes 
+        format `area1 area2 ...` 
+    """
+
+    w = bbox[:, 2] - bbox[:, 0]
+    h = bbox[:, 3] - bbox[:, 1]
+    area = w * h
+
+    return area
+
+def clip_box(bbox, clip_box, alpha):
+    """Clip the bounding boxes to the borders of an image
+    
+    Parameters
+    ----------
+    
+    bbox: numpy.ndarray
+        Numpy array containing bounding boxes of shape `N X 4` where N is the 
+        number of bounding boxes and the bounding boxes are represented in the
+        format `x1 y1 x2 y2`
+    
+    clip_box: numpy.ndarray
+        An array of shape (4,) specifying the diagonal co-ordinates of the image
+        The coordinates are represented in the format `x1 y1 x2 y2`
+        
+    alpha: float
+        If the fraction of a bounding box left in the image after being clipped is 
+        less than `alpha` the bounding box is dropped. 
+    
+    Returns
+    -------
+    
+    numpy.ndarray
+        Numpy array containing **clipped** bounding boxes of shape `N X 4` where N is the 
+        number of bounding boxes left are being clipped and the bounding boxes are represented in the
+        format `x1 y1 x2 y2` 
+    
+    """
+    area = bbox_area(bbox)
+    x_min = np.maximum(bbox[:,0], clip_box[0]).reshape(-1,1)
+    y_min = np.maximum(bbox[:,1], clip_box[1]).reshape(-1,1)
+    x_max = np.minimum(bbox[:,2], clip_box[2]).reshape(-1,1)
+    y_max = np.minimum(bbox[:,3], clip_box[3]).reshape(-1,1)
+    bbox = np.hstack((x_min, y_min, x_max, y_max))
+
+    # fraction of area between new boxes and original boxes 
+    delta_area = bbox_area(bbox)/area
+
+    # to record the box that need to reserve
+    mask = np.ones((bbox.shape[0], ), dtype=np.bool)
+    for i in range(bbox.shape[0]):
+        if bbox[i, 0] == bbox[i, 2]:    # bounding box's 2 x coord are excced img
+            mask[i] = False
+        elif bbox[i, 1] == bbox[i, 3]:  # bounding box's 2 y coord are excced img
+            mask[i] = False
+        elif delta_area[i] < alpha:     # new box's area is less than threshold
+            mask[i] = False
+
+    return bbox, mask
+
 def Rot_img_bbox(angle, img, bboxes):
     w, h = img.shape[1], img.shape[0]
     cx, cy = w//2, h//2
@@ -194,14 +269,17 @@ def Rot_img_bbox(angle, img, bboxes):
 
     bboxes  = new_bbox
     
-    # bboxes = clip_box(bboxes, [0,0,w, h], 0.25)
+    bboxes, mask = clip_box(bboxes, [0,0,w, h], 0.25)
 
-    return img, bboxes
+    return img, bboxes, mask
+
 
 if __name__ == '__main__':
-    img = cv2.imread('.\data\Defect_Img\HoleImage36.png')
+    img = cv2.imread('..\data\Defect_Img\HoleImage36.png')
     box = np.array([[ 511, 2077,  658, 2221], [3881,  465, 4111,  665]], dtype=np.uint16)
-    img, bboxes = Rot_img_bbox(30, img, box)
+    img, bboxes, mask = Rot_img_bbox(30, img, box)
+    print(mask)
+    bboxes = bboxes[mask]
 
     target_size = 800
     im_scale = target_size / img.shape[1]

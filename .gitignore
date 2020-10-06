@@ -138,6 +138,9 @@ dmypy.json
 # ignore all json file's output
 /data/js_data/js_output/*
 
+# ignore file
+/data/Defect_Img/原圖共53張.txt
+test.py
 
 # --- not to ignore ---
 !/data/Defect_Img/HoleImage1.png
