@@ -89,5 +89,6 @@ def js_to_output(json_file, out_dir=None):
 
 
 if __name__ == "__main__":
-    js_filename ='HoleImage1.json'
+
+    js_filename = '000001.json'
     js_to_output(js_filename)

@@ -1,0 +1,32 @@
+<annotation>
+	<folder>VOC2007</folder>
+	<filename>000001.jpg</filename>
+	<source>
+		<database>The Defect Img Database</database>
+		<annotation>Defect Img</annotation>
+		<image>NULL</image>
+		<flickrid>NULL</flickrid>
+	</source>
+	<owner>
+		<flickrid>NULL</flickrid>
+		<name>MinWei</name>
+	</owner>
+	<size>
+		<width>4624</width>
+		<height>2604</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>hole</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>2620</xmin>
+			<ymin>1552</ymin>
+			<xmax>2855</xmax>
+			<ymax>1754</ymax>
+		</bndbox>
+	</object>
+</annotation>

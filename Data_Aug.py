@@ -7,6 +7,7 @@ from utils.data_extract import Data_extractor
 from utils.DataAug_Rot_funciton import Rot_img_bbox
 from utils.StringSortByDigit import natural_keys
 
+''' generate augmented roidb '''
 class DataAugmentation():
     def __init__(self, img, roidb):
         super().__init__()
@@ -88,8 +89,6 @@ class DataAugmentation():
         img = cv2.resize(img, None, None, fx=im_scale, fy=im_scale, interpolation=cv2.INTER_CUBIC)
         bbox = roidb['boxes'] * im_scale
         for i in range(bbox.shape[0]):
-            x1, y1, x2, y2 = bbox[i, :].astype(int)
-            cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)
             x1, y1, x2, y2 = bbox[i, :].astype(int)
             cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)
 
