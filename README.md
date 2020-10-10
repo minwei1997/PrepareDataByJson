@@ -7,8 +7,7 @@ this project is use to prepare the Faster RCNN Dataset by labelme's json file.
 > 將labelme標註後所輸出的json file進行處理，輸出成Faster RCNN之xml檔案格式  
 > (範例) :  
 
-![image](https://github.com/minwei1997/PrepareDataByJson/blob/main/%E7%85%A7%E7%89%87/Sample/xml_sample.png) 
-<img src="https://github.com/minwei1997/PrepareDataByJson/blob/main/%E7%85%A7%E7%89%87/Sample/xml_sample.png" width="550" height="114">  
+<img src="https://github.com/minwei1997/PrepareDataByJson/blob/main/%E7%85%A7%E7%89%87/Sample/xml_sample.png" width="336" height="324">  
 
 > 並且將其輸出5個可視化資料  
 > (範例):  
