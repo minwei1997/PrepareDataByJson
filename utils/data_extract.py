@@ -49,10 +49,10 @@ class Data_extractor():
             xml.write('\t<segmented>0</segmented>\n')
             for j in range(num_objs):
                 # get data information
-                x1 = int((json_file['shapes'][j]['points'])[0][0]) if not aug_mode else bbox[j, 0]
-                y1 = int((json_file['shapes'][j]['points'])[0][1]) if not aug_mode else bbox[j, 1]
-                x2 = int((json_file['shapes'][j]['points'])[1][0]) if not aug_mode else bbox[j, 2]
-                y2 = int((json_file['shapes'][j]['points'])[1][1]) if not aug_mode else bbox[j, 3]
+                x1 = int((json_file['shapes'][j]['points'])[0][0]) if not aug_mode else int(bbox[j, 0])
+                y1 = int((json_file['shapes'][j]['points'])[0][1]) if not aug_mode else int(bbox[j, 1])
+                x2 = int((json_file['shapes'][j]['points'])[1][0]) if not aug_mode else int(bbox[j, 2])
+                y2 = int((json_file['shapes'][j]['points'])[1][1]) if not aug_mode else int(bbox[j, 3])
                 _cls = json_file['shapes'][j]['label'] if not aug_mode else clss[j]
 
                 xml.write('\t<object>\n')

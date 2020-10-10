@@ -155,7 +155,7 @@ if __name__ == '__main__':
             n = n // 10
         return count
 
-    vis_mode = True     # True for visualize result. False for Data Augmentation
+    vis_mode = False     # True for visualize result. False for Data Augmentation
     original_num = 53
     
     if vis_mode:
@@ -172,8 +172,8 @@ if __name__ == '__main__':
         all_xml = [files for files in os.listdir(xml_fileDir) if files.endswith(xml_fileExt)]    
         all_xml.sort(key=natural_keys)    
 
-        all_img = all_img[60::8]
-        all_xml = all_xml[60::8]
+        # all_img = all_img[60::8]
+        # all_xml = all_xml[60::8]
 
         for k in range(len(all_img)):
             print('img :' ,all_img[k])
