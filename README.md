@@ -33,18 +33,24 @@ this project is use to prepare the Faster RCNN Dataset by labelme's json file.
 
 ### Data Augmentation
 > 執行Data_Aug.py即可進行Augmentation，在__main__中需要設定模式(visulize or augment)以及圖片張數
->> 共有兩個版本(1為gt_roidb格式的，2為xml格式的)
+>> 共有兩個版本(1為gt_roidb格式的，2為xml格式的(翻轉+Rotate)，3為xml格式的(先做完翻轉再全部做Rotate))
 >>> 1. Data_Aug
 >>> 2. Data_Aug_v2 
+>>> 2. Data_Aug_v3 
 
 -------------------------
 ## 附屬功能
 > 1. PngToJpg -> 將圖片的副檔名變更(可由程式內自行修改要變更的副檔名種類)
 > 2. Img_Rename -> 將圖片名稱改成Faster RCNN之圖片名稱形式 (ex:000001.jpg)
+> 3. test_draw_box -> 自行設定要測試的圖片及其對應的Bbox座標，執行後可用來確認Bbox位置是否正確
 
 -------------------------
 ## logs  
 ### 2020/10/7  
-> 將json file之資料輸出成Faster RCNN之roidb資料，並完成其Data Augmentation
+> 將json file之資料輸出成Faster RCNN之roidb資料，並完成其Data Augmentation  
+
 ### 2020/10/8  
-> 改將json file資料輸出成xml檔案，並修改Data Augmentation為輸出xml檔
+> 改將json file資料輸出成xml檔案，並修改Data Augmentation為輸出xml檔  
+
+### 2020/10/11
+> 將Data Augmentation修改，改為先做水平+垂直翻轉後再將全部imgae做Rotate

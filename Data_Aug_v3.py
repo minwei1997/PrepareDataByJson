@@ -9,7 +9,7 @@ from utils.data_extract import Data_extractor
 from utils.DataAug_Rot_funciton import Rot_img_bbox
 from utils.StringSortByDigit import natural_keys
 
-""" 此code生成的擴增資料為 水平翻轉x1, 垂直翻轉x1, Rotate(自行設定角度範圍)
+""" 此code之擴增資料為 水平翻轉 + 垂直翻轉 後再針對所有圖片進行Rotate
 """
 
 ''' generate augmented xml '''
@@ -201,7 +201,9 @@ if __name__ == '__main__':
         img_path = img_fileDir
         xml_path = r'.\data\xml_file'
         _name = '000000'
-        # Data Augmentation
+
+        ''' Data Augmentation (Do horizontal and vertical flip) '''
+        print('horizontal and vertical flip processing...')
         for i in range(len(all_img)):
             old_xml_name = all_img[i].strip('.jpg') + '.xml'
             img = cv2.imread(img_path + all_img[i])
@@ -226,11 +228,31 @@ if __name__ == '__main__':
             img2 = DataAug.vertical_flip()
             cv2.imwrite((img_fileDir + new_img_name), img2)
             img_idx = str(int(img_idx) + 1)
+            
+            print(all_img[i] + '\tDone!')
+
+        print('Horizontal and Vertical flip are done ! ')
+
+
+        ''' Data Augmentation (Rotate)  '''
+        # get all img
+        img_fileDir = './data/Defect_Img/'
+        img_fileExt = '.jpg'
+        all_img = [files for files in os.listdir(img_fileDir) if files.endswith(img_fileExt)]    
+        all_img.sort(key=natural_keys)    # Sort by file's index
+        print(all_img[:5])
+
+        img_idx = str(int(all_img[-1].strip('.jpg')) + 1)      # img idx
+
+        print('Rotate processing...')
+        for i in range(len(all_img)):
             ''' rotation (from -30 to 30 deg. with each step=10) '''
             for j in range(-30, 31, 5):
                 if j == 0:
                     continue
                 else:
+                    old_xml_name = all_img[i].strip('.jpg') + '.xml'
+                    img = cv2.imread(img_path + all_img[i])
                     d_count = digit_count(int(img_idx))
                     new_name = _name[:-d_count] + img_idx
                     new_img_name = new_name + '.jpg'
@@ -243,11 +265,6 @@ if __name__ == '__main__':
                     cv2.imwrite((img_fileDir + new_img_name), img3)
                     img_idx = str(int(img_idx) + 1)
             print(all_img[i] + '\tDone!')
-        # # save pkl file
-        # pkl_path = './data/training_pickle/Training_Data_Agmented.pkl'
-        # with open(pkl_path, 'wb') as fid:
-        #     pickle.dump(roidb, fid, pickle.HIGHEST_PROTOCOL)
-        #     print('Wrote gt roidb to {}'.format(pkl_path))
 
         print('\nProcess Done.\n')
 
