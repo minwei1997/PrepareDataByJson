@@ -7,6 +7,7 @@ this project is use to prepare the Faster RCNN Dataset by labelme's json file.
 > 將labelme標註後所輸出的json file進行處理，輸出成Faster RCNN之xml檔案格式  
 > (範例) :  
 
+<img src="https://github.com/minwei1997/PrepareDataByJson/blob/main/%E7%85%A7%E7%89%87/Sample/xml_sample.png" width="336" height="324">  
 
 > 並且將其輸出5個可視化資料  
 > (範例):  
@@ -50,7 +51,10 @@ this project is use to prepare the Faster RCNN Dataset by labelme's json file.
 > 將json file之資料輸出成Faster RCNN之roidb資料，並完成其Data Augmentation  
 
 ### 2020/10/8  
+<<<<<<< HEAD
 > 改將json file資料輸出成xml檔案，並修改Data Augmentation為輸出xml檔  
 
 ### 2020/10/11
 > 將Data Augmentation修改，改為先做水平+垂直翻轉後再將全部imgae做Rotate
+
+
