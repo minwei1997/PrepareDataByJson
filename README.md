@@ -58,7 +58,3 @@ this project is use to prepare the Faster RCNN Dataset by labelme's json file.
 ### 2020/10/11
 > 將Data Augmentation修改，改為先做水平+垂直翻轉後再將全部imgae做Rotate
 
-
-=======
-> 改將json file資料輸出成xml檔案，並修改Data Augmentation為輸出xml檔
->>>>>>> 2559c4d9115ad2fe4a57493c2901c6ec8a5a5e9b
