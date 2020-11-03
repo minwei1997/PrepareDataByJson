@@ -150,3 +150,5 @@ test.py
 !/data/js_data/js_file/HoleImage1.json
 !/data/js_data/js_output/HoleImage1_json
 !/data/xml_file/000001.xml
+!/data/js_data/js_file/000001.json
+!/data/js_data/js_output/000001_json/

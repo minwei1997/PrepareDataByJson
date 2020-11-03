@@ -159,7 +159,7 @@ if __name__ == '__main__':
         return count
 
     vis_mode = False     # True for visualize result. False for Data Augmentation
-    original_num = 53
+    original_num = 94
     
     if vis_mode:
 
@@ -192,12 +192,12 @@ if __name__ == '__main__':
         img_fileExt = '.jpg'
         all_img = [files for files in os.listdir(img_fileDir) if files.endswith(img_fileExt)]    
         all_img.sort(key=natural_keys)    # Sort by file's index
-        # print(all_img[:5])
+        print(all_img[:5])
 
         img_idx = str(int(all_img[-1].strip('.jpg')) + 1)      # img idx
         if int(img_idx) > original_num:
             img_idx = str(original_num + 1)
-
+        print(img_idx)
         img_path = img_fileDir
         xml_path = r'.\data\xml_file'
         _name = '000000'

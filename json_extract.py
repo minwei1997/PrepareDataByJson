@@ -33,7 +33,7 @@ if __name__ == '__main__':
 
 
         ''' about generate json's output (5 files) '''
-        # js_to_output(files)
+        js_to_output(files)
         print('{} output done!'.format(files))
         print('-'*30)
 

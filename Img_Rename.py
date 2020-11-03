@@ -3,18 +3,15 @@ import os
 
 from utils.StringSortByDigit import natural_keys
 
-path = r'D:\user\Desktop\Defect_Img\\'
-
-# Get all image endwith .png
-img_fileExt = '.png'
-all_img = [files for files in os.listdir(path) if files.endswith(img_fileExt)]    
+''' Chageable Variables Setting '''
+path = r'E:\MinWei\AI code\PrepareDataByJson\data\Defect_Img\\'
+ext = '.jpg'
+all_img = [files for files in os.listdir(path) if files.endswith(ext)]    # Get all image endwith .png
 all_img.sort(key=natural_keys)    # Sort by file's index
-
 new_name = '000000'
-ext = '.png'
-idx = '1'
 
-Img_Num = 94
+idx = '1'
+Img_Num = len(all_img)
 for i in range(Img_Num):
     # Count the Number of Digits in a Number 
     count = 0
