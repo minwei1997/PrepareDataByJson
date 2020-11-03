@@ -240,7 +240,6 @@ if __name__ == '__main__':
         img_fileExt = '.jpg'
         all_img = [files for files in os.listdir(img_fileDir) if files.endswith(img_fileExt)]    
         all_img.sort(key=natural_keys)    # Sort by file's index
-        print(all_img[:5])
 
         img_idx = str(int(all_img[-1].strip('.jpg')) + 1)      # img idx
 

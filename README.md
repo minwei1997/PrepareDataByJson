@@ -39,11 +39,15 @@ this project is use to prepare the Faster RCNN Dataset by labelme's json file.
 >>> 2. Data_Aug_v2 
 >>> 2. Data_Aug_v3 
 
+### Prepare Faster RCNN Dataset
+> 執行generate_trainval_txt.py即可產生分割之訓練資料集 (可自行設定個資料集的比例)
+
 -------------------------
 ## 附屬功能
 > 1. PngToJpg -> 將圖片的副檔名變更(可由程式內自行修改要變更的副檔名種類)
 > 2. Img_Rename -> 將圖片名稱改成Faster RCNN之圖片名稱形式 (ex:000001.jpg)
 > 3. test_draw_box -> 自行設定要測試的圖片及其對應的Bbox座標，執行後可用來確認Bbox位置是否正確
+> 4. plot_loss -> 將loss.csv之資料進行繪製
 
 -------------------------
 ## logs  
@@ -51,10 +55,11 @@ this project is use to prepare the Faster RCNN Dataset by labelme's json file.
 > 將json file之資料輸出成Faster RCNN之roidb資料，並完成其Data Augmentation  
 
 ### 2020/10/8  
-<<<<<<< HEAD
-<<<<<<< HEAD
 > 改將json file資料輸出成xml檔案，並修改Data Augmentation為輸出xml檔  
 
 ### 2020/10/11
 > 將Data Augmentation修改，改為先做水平+垂直翻轉後再將全部imgae做Rotate
+> 新增train, test set隨機產生之程式
 
+### 2020/11/3
+> 將Img_Rename改為讀取路徑下的所有特定副檔名檔案
