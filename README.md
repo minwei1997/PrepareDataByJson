@@ -62,5 +62,5 @@ this project is use to prepare the Faster RCNN Dataset by labelme's json file.
 > 新增train, test set隨機產生之程式
 
 ### 2020/11/3
-> 將Img_Rename改為讀取路徑下的所有特定副檔名檔案
-> PngToJpg程式小修改，改為只須給影像路徑及新舊副檔名即可
+> 將Img_Rename改為讀取路徑下的所有特定副檔名檔案  
+> PngToJpg程式小修改，改為只須給影像路徑及新舊副檔名即可  
