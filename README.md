@@ -33,11 +33,7 @@ this project is use to prepare the Faster RCNN Dataset by labelme's json file.
 >> 5個可視化資料將存至 ".\data\js_data\js_output"  
 
 ### Data Augmentation
-> 執行Data_Aug.py即可進行Augmentation，在__main__中需要設定模式(visulize or augment)以及圖片張數
->> 共有兩個版本(1為gt_roidb格式的，2為xml格式的(翻轉+Rotate)，3為xml格式的(先做完翻轉再全部做Rotate))
->>> 1. Data_Aug
->>> 2. Data_Aug_v2 
->>> 2. Data_Aug_v3 
+> 執行Data_Aug.py即可進行Augmentation(會進行水平+垂直翻轉後再進行旋轉)  
 
 ### Prepare Faster RCNN Dataset
 > 執行generate_trainval_txt.py即可產生分割之訓練資料集 (可自行設定個資料集的比例)
