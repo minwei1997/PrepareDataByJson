@@ -144,6 +144,8 @@ dmypy.json
 # ignore file
 /data/Defect_Img/原圖共53張.txt
 test.py
+/JPEGImages/*.jpg
+/temp/*.jpg
 
 # --- not to ignore ---
 !/data/Defect_Img/000001.jpg
@@ -152,3 +154,5 @@ test.py
 !/data/xml_file/000001.xml
 !/data/js_data/js_file/000001.json
 !/data/js_data/js_output/000001_json/
+!/JPEGImages/000003.jpg
+!/temp/000003.jpg

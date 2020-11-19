@@ -38,6 +38,9 @@ this project is use to prepare the Faster RCNN Dataset by labelme's json file.
 ### Prepare Faster RCNN Dataset
 > 執行generate_trainval_txt.py即可產生分割之訓練資料集 (可自行設定個資料集的比例)
 
+### Data Preprocess
+> ImagePreprocess -> 進行圖像預處理，有兩種模式，1.轉換回灰階圖(3 channel)，2.調整對比度及亮度  
+
 -------------------------
 ## 附屬功能
 > 1. PngToJpg -> 將圖片的副檔名變更(可由程式內自行修改要變更的副檔名種類)
@@ -63,3 +66,6 @@ this project is use to prepare the Faster RCNN Dataset by labelme's json file.
 
 ### 2020/11/4
 > 將Augmentaion相關程式做簡化
+
+### 2020/11/19
+> 新增Data Preprocess功能(轉灰階or調整對比度)
