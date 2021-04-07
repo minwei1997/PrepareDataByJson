@@ -2,6 +2,7 @@ import pickle
 import os
 import os.path as osp
 import numpy as np 
+import sys
 import cv2
 import xml.etree.ElementTree as ET
 
@@ -228,7 +229,8 @@ if __name__ == '__main__':
             DataAug.vertical_flip(NewImgName)
             img_idx = str(int(img_idx) + 1)
             
-            print(AllImg[i] + '\tDone!')
+            sys.stdout.write('Fliping : {}/{} \r' \
+                           .format(i+1, len(AllImg)))
 
         print('Horizontal and Vertical flip are done ! ')
 
@@ -260,7 +262,8 @@ if __name__ == '__main__':
                         raise ValueError('number of obj is 0 after augment process !') 
                     img_idx = str(int(img_idx) + 1)
 
-            print(AllImg[i] + '\tDone!')
+            sys.stdout.write('Rotating : {}/{} \r' \
+                .format(i+1, len(AllImg)))
 
         print('\nProcess Done.\n')
 

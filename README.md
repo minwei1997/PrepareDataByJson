@@ -29,6 +29,9 @@ this project is use to prepare the Faster RCNN Dataset by labelme's json file.
 > 1. 將瑕疵照片放進 ".\data\Defect_Img" 路徑
 > 2. 將labelme標註之json檔放進 ".\data\js_data\js_file" 路徑  
 > 3. 執行json_extract.py即可進行處理  
+> 4. 執行Data_Aug.py進行資料擴增
+> 5. 執行generate_trainval_txt.py以取得training及testing的切割資料集
+> 6. 執行PixelMeanCalc.py以計算所有圖片之RGB平均值
 >> Faster RCNN需用到的xml檔將存至 ".\data\xml_file"  
 >> 5個可視化資料將存至 ".\data\js_data\js_output"  
 
@@ -72,3 +75,4 @@ this project is use to prepare the Faster RCNN Dataset by labelme's json file.
 
 ### 2021/4/7
 > 程式小bug修正
+> 新增PixelMean計算程式
