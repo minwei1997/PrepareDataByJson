@@ -275,7 +275,7 @@ def Rot_img_bbox(angle, img, bboxes):
 
 
 if __name__ == '__main__':
-    img = cv2.imread('..\data\Defect_Img\HoleImage36.png')
+    img = cv2.imread('..\data\Defect_Img\000062.jpg')
     box = np.array([[ 511, 2077,  658, 2221], [3881,  465, 4111,  665]], dtype=np.uint16)
     img, bboxes, mask = Rot_img_bbox(30, img, box)
     print(mask)

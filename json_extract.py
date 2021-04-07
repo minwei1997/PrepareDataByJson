@@ -3,7 +3,7 @@ import os
 import os.path as osp
 import pickle 
 from utils.generate_json_output import js_to_output
-from utils.data_extract_v2 import Data_extractor
+from utils.data_extract import Data_extractor
 from utils.StringSortByDigit import natural_keys
 
 ''' Prepare xml file(for Faster RCNN use) from json file's data

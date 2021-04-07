@@ -69,3 +69,6 @@ this project is use to prepare the Faster RCNN Dataset by labelme's json file.
 
 ### 2020/11/19
 > 新增Data Preprocess功能(轉灰階or調整對比度)
+
+### 2021/4/7
+> 程式小bug修正
