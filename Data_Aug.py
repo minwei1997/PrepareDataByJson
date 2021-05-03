@@ -6,7 +6,7 @@ import sys
 import cv2
 import xml.etree.ElementTree as ET
 
-from utils.data_extract_v2 import Data_extractor
+from utils.data_extract import Data_extractor
 from utils.DataAug_Rot_funciton import Rot_img_bbox
 from utils.StringSortByDigit import natural_keys
 
@@ -58,7 +58,7 @@ class DataAugmentation():
 
     def horizontal_flip(self, NewImgName):
         ''' flipping img '''
-        img_ctr = np.array(self.img.shape[:2])[::-1]/2        # center coord (ctr_w, ctr_h)
+        [h, w] = np.array(self.img.shape[:2]) 
         img =  self.img[:,::-1,:]     # horizontal flip (flip w's dim)
 
         New_boxes = np.zeros((self.num_objs, 4), dtype=np.uint16)
@@ -69,8 +69,8 @@ class DataAugmentation():
             box_w = round(self.bbox[ix, 2] - self.bbox[ix, 0])
             box_h = round(self.bbox[ix, 3] - self.bbox[ix, 1])
 
-            new_x1, new_y1 = round(2*img_ctr[0] - box_ctr_w - (box_w/2)), self.bbox[ix, 1].astype(np.int)
-            new_x2, new_y2 = round(2*img_ctr[0] - box_ctr_w + (box_w/2)), self.bbox[ix, 3].astype(np.int)
+            new_x1, new_y1 = round(w - box_ctr_w - (box_w/2)), self.bbox[ix, 1].astype(np.int)
+            new_x2, new_y2 = round(w - box_ctr_w + (box_w/2)), self.bbox[ix, 3].astype(np.int)
             New_boxes[ix, :] = np.array([new_x1, new_y1, new_x2, new_y2])
             
         ''' about generate new xml '''
@@ -81,7 +81,7 @@ class DataAugmentation():
 
     def vertical_flip(self, NewImgName):
         ''' flipping img '''
-        img_ctr = np.array(self.img.shape[:2])[::-1]/2        # center coord (ctr_w, ctr_h)
+        [h, w] = np.array(self.img.shape[:2])
         img =  self.img[::-1,:,:]     # vertical flip (flip h's dim)
 
         New_boxes = np.zeros((self.num_objs, 4), dtype=np.uint16)
@@ -92,8 +92,8 @@ class DataAugmentation():
             box_w = round(self.bbox[ix, 2] - self.bbox[ix, 0])
             box_h = round(self.bbox[ix, 3] - self.bbox[ix, 1])
 
-            new_x1, new_y1 = self.bbox[ix, 0].astype(np.int), round(2*img_ctr[1] - box_ctr_h - (box_h/2))
-            new_x2, new_y2 = self.bbox[ix, 2].astype(np.int), round(2*img_ctr[1] - box_ctr_h + (box_h/2))
+            new_x1, new_y1 = self.bbox[ix, 0].astype(np.int), round(h - box_ctr_h - (box_h/2))
+            new_x2, new_y2 = self.bbox[ix, 2].astype(np.int), round(h - box_ctr_h + (box_h/2))
             New_boxes[ix, :] = np.array([new_x1, new_y1, new_x2, new_y2])
             
 

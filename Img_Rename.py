@@ -4,7 +4,7 @@ import os
 from utils.StringSortByDigit import natural_keys
 
 ''' Chageable Variables Setting '''
-path = r'D:\user\Desktop\scratch_img\\'
+path = r'D:\user\Desktop\temp\\'
 ext = '.jpg'
 all_img = [files for files in os.listdir(path) if files.endswith(ext)]    # Get all image endwith .png
 all_img.sort(key=natural_keys)    # Sort by file's index
